@@ -25,7 +25,9 @@
   home.sessionVariables = {
       NIXPKGS_ALLOW_UNFREE = 1;
   };
-
+home.file = { 
+    ".config/alacritty/alacritty.yml".source = config.lib.file.mkOutOfStoreSymlink ./alacritty.yml;
+};
   programs = {
     vscode = {
       enable = true;
