@@ -20,13 +20,14 @@
   programs.home-manager.enable = true;
 
   # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [ alacritty htop neovim fd ripgrep bash obsidian exa curlie];
+  home.packages = with pkgs; [ alacritty htop neovim fd ripgrep bash obsidian exa curlie tldr];
 
   home.sessionVariables = {
       NIXPKGS_ALLOW_UNFREE = 1;
   };
 home.file = { 
     ".config/alacritty/alacritty.yml".source = config.lib.file.mkOutOfStoreSymlink ./alacritty.yml;
+    ".config/karabiner/karabiner.json".source = config.lib.file.mkOutOfStoreSymlink ./karabiner.json;
 };
   programs = {
     vscode = {
