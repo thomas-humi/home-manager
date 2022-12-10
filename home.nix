@@ -37,7 +37,7 @@ home.file = {
         jnoortheen.nix-ide
         esbenp.prettier-vscode
       ];
-      userSettings = { "editor.formatOnSave" = false; };
+      userSettings = { "editor.formatOnSave" = false; "editor.fontSize"=18; };
     };
     git = {
       enable = true;
