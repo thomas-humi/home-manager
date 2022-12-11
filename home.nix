@@ -67,7 +67,7 @@ home.file = {
         rm = "rm -v";
         tf = "terraform";
         tree = "exa --tree";
-        hs = "rm -rf $HOME/Applications/Home Manager Apps && home-manager switch";
+        hs = "rm -rf \"$HOME/Applications/Home Manager Apps\" && home-manager switch";
       };
       shellGlobalAliases = {
         "..." = "../..";
