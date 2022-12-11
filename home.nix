@@ -60,6 +60,7 @@
         "editor.fontSize" = 18;
         "window.titleBarStyle" = "custom";
         "workbench.colorTheme" = "Catppuccin Frappé";
+      	"editor.fontFamily" = "JetBrainsMono Nerd Font Mono";
       };
     };
     git = {
