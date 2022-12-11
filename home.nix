@@ -20,7 +20,7 @@
   programs.home-manager.enable = true;
 
   # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [ alacritty htop neovim fd ripgrep bash obsidian exa curlie tldr];
+  home.packages = with pkgs; [ alacritty htop neovim fd ripgrep bash obsidian exa curlie tldr nerdfonts];
 
   home.sessionVariables = {
       NIXPKGS_ALLOW_UNFREE = 1;
@@ -29,6 +29,7 @@ home.file = {
     ".config/alacritty/alacritty.yml".source = config.lib.file.mkOutOfStoreSymlink ./alacritty.yml;
     ".config/karabiner/karabiner.json".source = config.lib.file.mkOutOfStoreSymlink ./karabiner.json;
     ".config/yabai/yabairc".source = config.lib.file.mkOutOfStoreSymlink ./yabairc;
+    ".config/skhd/skhdrc".source = config.lib.file.mkOutOfStoreSymlink ./skhdrc;
 };
   programs = {
     vscode = {
@@ -167,7 +168,6 @@ home.file = {
         scan_timeout = 2000;
         command_timeout = 2000;
         aws = { disabled = true; };
-        shlvl = { disabled = false; };
         terraform = { disabled = false; };
         git_commit = {
           disabled = false;
