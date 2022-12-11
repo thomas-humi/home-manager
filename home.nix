@@ -20,17 +20,32 @@
   programs.home-manager.enable = true;
 
   # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [ alacritty htop neovim fd ripgrep bash obsidian exa curlie tldr nerdfonts];
+  home.packages = with pkgs; [
+    alacritty
+    htop
+    neovim
+    fd
+    ripgrep
+    bash
+    obsidian
+    exa
+    curlie
+    tldr
+    nerdfonts
+    nixfmt
+  ];
 
-  home.sessionVariables = {
-      NIXPKGS_ALLOW_UNFREE = 1;
-  };
-home.file = { 
-    ".config/alacritty/alacritty.yml".source = config.lib.file.mkOutOfStoreSymlink ./alacritty.yml;
-    ".config/karabiner/karabiner.json".source = config.lib.file.mkOutOfStoreSymlink ./karabiner.json;
-    ".config/yabai/yabairc".source = config.lib.file.mkOutOfStoreSymlink ./yabairc;
+  home.sessionVariables = { NIXPKGS_ALLOW_UNFREE = 1; };
+  home.file = {
+    ".config/alacritty/alacritty.yml".source =
+      config.lib.file.mkOutOfStoreSymlink ./alacritty.yml;
+    ".config/alacritty/catppuccin.yml".source = config.lib.file.mkOutOfStoreSymlink ./alacritty-catppuccin.yml;
+    ".config/karabiner/karabiner.json".source =
+      config.lib.file.mkOutOfStoreSymlink ./karabiner.json;
+    ".config/yabai/yabairc".source =
+      config.lib.file.mkOutOfStoreSymlink ./yabairc;
     ".config/skhd/skhdrc".source = config.lib.file.mkOutOfStoreSymlink ./skhdrc;
-};
+  };
   programs = {
     vscode = {
       enable = true;
@@ -38,14 +53,20 @@ home.file = {
         vscodevim.vim
         jnoortheen.nix-ide
         esbenp.prettier-vscode
+        catppuccin.catppuccin-vsc
       ];
-      userSettings = { "editor.formatOnSave" = false; "editor.fontSize"=18; };
+      userSettings = {
+        "editor.formatOnSave" = false;
+        "editor.fontSize" = 18;
+        "window.titleBarStyle" = "custom";
+        "workbench.colorTheme" = "Catppuccin Frappé";
+      };
     };
     git = {
       enable = true;
       delta = { enable = true; };
-      userName="Thomas Steven";
-      userEmail="thomas.steven@humi.ca";
+      userName = "Thomas Steven";
+      userEmail = "thomas.steven@humi.ca";
       extraConfig = {
         init = { defaultBranch = "main"; };
         help = { autocorrect = "immediate"; };
@@ -68,7 +89,8 @@ home.file = {
         rm = "rm -v";
         tf = "terraform";
         tree = "exa --tree";
-        hs = "rm -rf \"$HOME/Applications/Home Manager Apps\" && home-manager switch";
+        hs = ''
+          rm -rf "$HOME/Applications/Home Manager Apps" && home-manager switch'';
       };
       shellGlobalAliases = {
         "..." = "../..";
@@ -176,11 +198,10 @@ home.file = {
         status = { disabled = false; };
       };
     };
-   bat = {
-    enable = true;
-    config = {
+    bat = {
+      enable = true;
+      config = { };
     };
-  };
   };
 
   # This makes applications show up in spotlight
