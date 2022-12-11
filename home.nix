@@ -28,6 +28,7 @@
 home.file = { 
     ".config/alacritty/alacritty.yml".source = config.lib.file.mkOutOfStoreSymlink ./alacritty.yml;
     ".config/karabiner/karabiner.json".source = config.lib.file.mkOutOfStoreSymlink ./karabiner.json;
+    ".config/yabai/yabairc".source = config.lib.file.mkOutOfStoreSymlink ./yabairc;
 };
   programs = {
     vscode = {
@@ -66,6 +67,7 @@ home.file = {
         rm = "rm -v";
         tf = "terraform";
         tree = "exa --tree";
+        hs = "rm -rf $HOME/Applications/Home Manager Apps && home-manager switch";
       };
       shellGlobalAliases = {
         "..." = "../..";
@@ -147,6 +149,7 @@ home.file = {
         }
         zle -N fancy-ctrl-z
         bindkey '^Z' fancy-ctrl-z
+        eval "$(/opt/homebrew/bin/brew shellenv)"
       '';
       # + builtins.readFile ../../rsc/scripts/sourceable-scripts/todoist-fzf.sh
       #  + builtins.readFile ../../rsc/scripts/sourceable-scripts/git-helpers.sh;
@@ -176,8 +179,6 @@ home.file = {
    bat = {
     enable = true;
     config = {
-      theme = "GitHub";
-      italic-text = "always";
     };
   };
   };
@@ -192,9 +193,6 @@ home.file = {
       };
     in lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       baseDir="$HOME/Applications/Home Manager Apps"
-      if [ -d "$baseDir" ]; then
-        rm -rf "$baseDir"
-      fi
       mkdir -p "$baseDir"
       for appFile in ${apps}/Applications/*; do
         target="$baseDir/$(basename "$appFile")"
