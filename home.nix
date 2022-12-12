@@ -25,6 +25,7 @@
     htop
     neovim
     fd
+    jq
     ripgrep
     bash
     obsidian
@@ -57,11 +58,14 @@
       ];
       userSettings = {
         "editor.formatOnSave" = false;
-        "editor.fontSize" = 18;
+        "editor.fontSize" = 14;
         "window.titleBarStyle" = "custom";
         "workbench.colorTheme" = "Catppuccin Frappé";
       	"editor.fontFamily" = "JetBrainsMono Nerd Font Mono";
         "editor.minimap.enabled" = false;
+        "workbench.activityBar.visible"= false;
+        "workbench.sideBar.location" = "right";
+       "window.zoomLevel" = 2;
       };
     };
     git = {
