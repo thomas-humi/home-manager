@@ -61,6 +61,7 @@
         "window.titleBarStyle" = "custom";
         "workbench.colorTheme" = "Catppuccin Frappé";
       	"editor.fontFamily" = "JetBrainsMono Nerd Font Mono";
+        "editor.minimap.enabled" = false;
       };
     };
     git = {
