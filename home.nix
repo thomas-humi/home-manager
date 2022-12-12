@@ -22,18 +22,20 @@
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     alacritty
-    htop
-    neovim
-    fd
-    jq
-    ripgrep
     bash
-    obsidian
-    exa
     curlie
-    tldr
+    exa
+    fd
+    gh
+    htop
+    jq
+    neovim
     nerdfonts
     nixfmt
+    obsidian
+    ripgrep
+    tldr
+    yq
   ];
 
   home.sessionVariables = { NIXPKGS_ALLOW_UNFREE = 1; };
