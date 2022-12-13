@@ -22,6 +22,7 @@
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     alacritty
+    # awscli2
     bash
     curlie
     exa
@@ -29,7 +30,6 @@
     gh
     htop
     jq
-    neovim
     nerdfonts
     nixfmt
     obsidian
@@ -48,7 +48,12 @@
     ".config/yabai/yabairc".source =
       config.lib.file.mkOutOfStoreSymlink ./yabairc;
     ".config/skhd/skhdrc".source = config.lib.file.mkOutOfStoreSymlink ./skhdrc;
+    ".config/nix/nix.conf".source = config.lib.file.mkOutOfStoreSymlink ./nix.conf;
+
+    ".config/nvim/init.vim".source = config.lib.file.mkOutOfStoreSymlink ./vim/init.vim;
+    ".config/nvim/lua/plugins.lua".source = config.lib.file.mkOutOfStoreSymlink ./vim/plugins.lua;
   };
+
   programs = {
     vscode = {
       enable = true;
@@ -60,7 +65,7 @@
       ];
       userSettings = {
         "editor.formatOnSave" = false;
-        "editor.fontSize" = 14;
+        "editor.fontSize" = 12;
         "window.titleBarStyle" = "custom";
         "workbench.colorTheme" = "Catppuccin Frappé";
       	"editor.fontFamily" = "JetBrainsMono Nerd Font Mono";
@@ -206,11 +211,18 @@
         status = { disabled = false; };
       };
     };
+
     bat = {
       enable = true;
       config = { };
     };
+
+    neovim = {
+      enable = true;
+      plugins = with pkgs.vimPlugins; [{ plugin = telescope-fzf-native-nvim; }];
+    };
   };
+
 
   # This makes applications show up in spotlight
   home.activation = lib.mkIf pkgs.stdenv.isDarwin {
