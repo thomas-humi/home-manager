@@ -95,6 +95,8 @@
     whois
     youtube-dl
     yq-go
+    mdl
+    gnused
   ];
 
   home.sessionVariables = {
