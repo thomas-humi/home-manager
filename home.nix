@@ -37,7 +37,6 @@
     exiftool
     fd
     figlet
-    gh
     gitleaks
     glow
     go_1_18
@@ -223,16 +222,11 @@
       initExtra = ''
         stty stop undef		# Disable ctrl-s to freeze terminal.
         bindkey -e # emacs mode
-        bindkey -s '^g^s' 'git status\n'
-        bindkey -s '^g^l' 'git log\n'
-        bindkey -s '^g^a' 'git add .\n'
-        bindkey -s '^g^d' 'git diff .\n'
-        bindkey -s '^g^k' 'git commit .\n'
-        bindkey -s '^g^p' 'git push .\n'
         setopt appendhistory
         setopt COMPLETE_ALIASES
         setopt SHARE_HISTORY
         setopt HIST_IGNORE_DUPS
+
         # Basic auto/tab complete:
         autoload -U compinit
         zstyle ':completion:*' menu select
@@ -241,6 +235,7 @@
         compinit
         _comp_options+=(globdots)		# Include hidden files.
         # edit in editor
+
         autoload -z edit-command-line
         zle -N edit-command-line
         bindkey "^X^E" edit-command-line
@@ -258,9 +253,7 @@
         zle -N fancy-ctrl-z
         bindkey '^Z' fancy-ctrl-z
         eval "$(/opt/homebrew/bin/brew shellenv)"
-      '';
-      # + builtins.readFile ../../rsc/scripts/sourceable-scripts/todoist-fzf.sh
-      #  + builtins.readFile ../../rsc/scripts/sourceable-scripts/git-helpers.sh;
+      '' + builtins.readFile ./git-helpers.sh;
     };
 
     zoxide = {
@@ -288,6 +281,13 @@
       enable = true;
       config = { };
     };
+
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
+    gh = { enable = true; };
 
     neovim = {
       enable = true;
