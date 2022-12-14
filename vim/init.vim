@@ -25,7 +25,7 @@ set signcolumn=yes
 set smartcase
 set softtabstop=4   " number of spaces in tab when editing
 set spellsuggest+=10
-set spellfile=~/.setup/rsc/en.utf-8.add
+set spellfile=~/.config/nvim/en.utf-8.add
 set splitbelow
 set splitright
 set tabstop=4       " number of visual spaces per TAB

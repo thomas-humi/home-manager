@@ -117,6 +117,9 @@
 
     ".config/nvim/init.vim".source =
       config.lib.file.mkOutOfStoreSymlink ./vim/init.vim;
+    ".config/nvim/en.utf-8.add".source =
+      config.lib.file.mkOutOfStoreSymlink ./vim/en.utf-8.add;
+
     ".config/nvim/lua/plugins.lua".source =
       config.lib.file.mkOutOfStoreSymlink ./vim/plugins.lua;
     ".config/nvim/lua/lsp.lua".source =
