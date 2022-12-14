@@ -22,7 +22,6 @@
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     alacritty
-    # awscli2
     bash
     curlie
     exa
@@ -38,7 +37,7 @@
     yq
   ];
 
-  home.sessionVariables = { NIXPKGS_ALLOW_UNFREE = 1; };
+  home.sessionVariables = { NIXPKGS_ALLOW_UNFREE = 1; EDITOR= "nvim"; };
   home.file = {
     ".config/alacritty/alacritty.yml".source =
       config.lib.file.mkOutOfStoreSymlink ./alacritty.yml;
