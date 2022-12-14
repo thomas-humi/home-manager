@@ -1,6 +1,7 @@
 set termguicolors " why first, Tom?
 
 lua require('plugins')
+lua require('lsp')
 
 set smartindent
 set breakindent
