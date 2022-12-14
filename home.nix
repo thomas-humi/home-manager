@@ -21,36 +21,104 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+    actionlint
+    air
     alacritty
+    asciiquarium
     bash
+    bat
+    black
+    btop
+    cl-wordle
     curlie
+    dig
     exa
+    exif
+    exiftool
     fd
+    figlet
     gh
+    gitleaks
+    glow
+    go_1_18
+    gofumpt
+    golangci-lint
+    golangci-lint-langserver
+    # golines
+    gopls
+    goreleaser
+    gotest
+    gotests
+    gotools
+    grc
+    hadolint
     htop
     jq
+    killall
+    libqalculate
+    lolcat
+    lsof
+    mpv
+    mycli
+    neofetch
     nerdfonts
+    netcat
     nixfmt
+    nmap
+    nodePackages.eslint_d
+    nodePackages.intelephense
+    nodePackages.parcel
+    nodePackages.prettier
+    nodePackages.pyright
+    nodePackages.typescript
+    nodePackages.typescript-language-server
+    nodePackages.yaml-language-server
+    nodejs
     obsidian
+    packer
+    pgcli
+    pre-commit
+    pylint
+    python3
     ripgrep
+    rnix-lsp
+    rubyPackages_3_1.solargraph
+    shellcheck
+    shfmt
+    slides
+    statix
+    stylua
+    terraform-ls
+    tflint
+    tfswitch
+    tgswitch
     tldr
-    yq
+    whois
+    youtube-dl
+    yq-go
   ];
 
-  home.sessionVariables = { NIXPKGS_ALLOW_UNFREE = 1; EDITOR= "nvim"; };
+  home.sessionVariables = {
+    NIXPKGS_ALLOW_UNFREE = 1;
+    EDITOR = "nvim";
+  };
   home.file = {
     ".config/alacritty/alacritty.yml".source =
       config.lib.file.mkOutOfStoreSymlink ./alacritty.yml;
-    ".config/alacritty/catppuccin.yml".source = config.lib.file.mkOutOfStoreSymlink ./alacritty-catppuccin.yml;
+    ".config/alacritty/catppuccin.yml".source =
+      config.lib.file.mkOutOfStoreSymlink ./alacritty-catppuccin.yml;
     ".config/karabiner/karabiner.json".source =
       config.lib.file.mkOutOfStoreSymlink ./karabiner.json;
     ".config/yabai/yabairc".source =
       config.lib.file.mkOutOfStoreSymlink ./yabairc;
     ".config/skhd/skhdrc".source = config.lib.file.mkOutOfStoreSymlink ./skhdrc;
-    ".config/nix/nix.conf".source = config.lib.file.mkOutOfStoreSymlink ./nix.conf;
+    ".config/nix/nix.conf".source =
+      config.lib.file.mkOutOfStoreSymlink ./nix.conf;
 
-    ".config/nvim/init.vim".source = config.lib.file.mkOutOfStoreSymlink ./vim/init.vim;
-    ".config/nvim/lua/plugins.lua".source = config.lib.file.mkOutOfStoreSymlink ./vim/plugins.lua;
+    ".config/nvim/init.vim".source =
+      config.lib.file.mkOutOfStoreSymlink ./vim/init.vim;
+    ".config/nvim/lua/plugins.lua".source =
+      config.lib.file.mkOutOfStoreSymlink ./vim/plugins.lua;
   };
 
   programs = {
@@ -67,11 +135,11 @@
         "editor.fontSize" = 12;
         "window.titleBarStyle" = "custom";
         "workbench.colorTheme" = "Catppuccin Frappé";
-      	"editor.fontFamily" = "JetBrainsMono Nerd Font Mono";
+        "editor.fontFamily" = "JetBrainsMono Nerd Font Mono";
         "editor.minimap.enabled" = false;
-        "workbench.activityBar.visible"= false;
+        "workbench.activityBar.visible" = false;
         "workbench.sideBar.location" = "right";
-       "window.zoomLevel" = 2;
+        "window.zoomLevel" = 2;
       };
     };
     git = {
@@ -221,7 +289,6 @@
       plugins = with pkgs.vimPlugins; [{ plugin = telescope-fzf-native-nvim; }];
     };
   };
-
 
   # This makes applications show up in spotlight
   home.activation = lib.mkIf pkgs.stdenv.isDarwin {
