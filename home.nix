@@ -97,6 +97,7 @@
     yq-go
     mdl
     gnused
+    difftastic
   ];
 
   home.sessionVariables = {
@@ -128,26 +129,6 @@
   };
 
   programs = {
-    vscode = {
-      enable = true;
-      extensions = with pkgs.vscode-extensions; [
-        vscodevim.vim
-        jnoortheen.nix-ide
-        esbenp.prettier-vscode
-        catppuccin.catppuccin-vsc
-      ];
-      userSettings = {
-        "editor.formatOnSave" = false;
-        "editor.fontSize" = 12;
-        "window.titleBarStyle" = "custom";
-        "workbench.colorTheme" = "Catppuccin Frappé";
-        "editor.fontFamily" = "JetBrainsMono Nerd Font Mono";
-        "editor.minimap.enabled" = false;
-        "workbench.activityBar.visible" = false;
-        "workbench.sideBar.location" = "right";
-        "window.zoomLevel" = 2;
-      };
-    };
     git = {
       enable = true;
       delta = { enable = true; };
@@ -166,6 +147,7 @@
         curl = "curlie";
         cp = "cp -riv";
         dc = "docker compose";
+        diff = "difft";
         e = "nvim";
         ec = "nvim --clean";
         ll = "ls -al";
