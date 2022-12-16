@@ -92,6 +92,8 @@
     tfswitch
     tgswitch
     tldr
+    tfswitch
+    tgswitch
     whois
     youtube-dl
     yq-go
@@ -128,6 +130,10 @@
       config.lib.file.mkOutOfStoreSymlink ./vim/lsp.lua;
 
     ".local/scripts/".source = config.lib.file.mkOutOfStoreSymlink ./scripts;
+
+    ".config/zsh/catppuccin_frappe-zsh-syntax-highlighting.zsh".source =
+      config.lib.file.mkOutOfStoreSymlink
+        ./catppuccin_frappe-zsh-syntax-highlighting.zsh;
   };
 
   programs = {
@@ -204,6 +210,10 @@
         save = 10000;
         path = "${config.xdg.dataHome}/zsh/history";
       };
+
+      initExtraFirst = ''
+        source ~/.config/zsh/catppuccin_frappe-zsh-syntax-highlighting.zsh
+      '';
 
       initExtra = ''
         stty stop undef		# Disable ctrl-s to freeze terminal.
