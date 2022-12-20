@@ -100,6 +100,7 @@
     mdl
     gnused
     difftastic
+    du-dust
   ];
 
   home.sessionVariables = {
@@ -156,6 +157,7 @@
         cp = "cp -riv";
         dc = "docker compose";
         diff = "difft";
+        du = "dust";
         e = "nvim";
         ec = "nvim --clean";
         ll = "ls -al";
@@ -239,6 +241,7 @@
 
         # Scripts
         export PATH="$HOME/.local/scripts/:$PATH"
+        export PATH="$HOME/bin/:$PATH"
 
         # edit in editor
         autoload -z edit-command-line

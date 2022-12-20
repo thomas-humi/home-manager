@@ -1,15 +1,3 @@
-_G.__luacache_config = {
-	chunks = {
-		enable = true,
-		path = vim.fn.stdpath("cache") .. "/luacache_chunks",
-	},
-	modpaths = {
-		enable = true,
-		path = vim.fn.stdpath("cache") .. "/luacache_modpaths",
-	},
-}
--- require("impatient")
-
 require("packer").startup(function()
 	use("L3MON4D3/LuaSnip")
 	use({
@@ -39,10 +27,10 @@ require("packer").startup(function()
 	use({ "kamykn/popup-menu.nvim", opt = true, event = "WinEnter" })
 	use("neoclide/jsonc.vim")
 	use("neovim/nvim-lspconfig")
-    use {
-  'nvim-lualine/lualine.nvim',
-  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-}
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	})
 	use("norcalli/nvim-colorizer.lua")
 	use("nvim-treesitter/nvim-treesitter-refactor")
 	use("nvim-treesitter/nvim-treesitter-textobjects")
@@ -50,7 +38,7 @@ require("packer").startup(function()
 	use("onsails/lspkind-nvim")
 	use("rafamadriz/friendly-snippets")
 	use("ray-x/go.nvim")
-	use { "catppuccin/nvim", as = "catppuccin" }
+	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("saadparwaiz1/cmp_luasnip")
 	use("tpope/vim-abolish")
 	use("tpope/vim-fugitive")
@@ -350,6 +338,16 @@ require("packer").startup(function()
 		"lalitmee/browse.nvim",
 		requires = { "nvim-telescope/telescope.nvim" },
 	})
+
+	use({
+		"zbirenbaum/copilot.lua",
+		event = "VimEnter",
+		config = function()
+			vim.defer_fn(function()
+				require("copilot").setup()
+			end, 100)
+		end,
+	})
 end)
 
 local trouble = require("trouble.providers.telescope")
@@ -526,23 +524,23 @@ vim.diagnostic.config({
 require("refactoring").setup({})
 
 require("catppuccin").setup({
-    flavour = "frappe", -- latte, frappe, macchiato, mocha
-    transparent_background = true,
-    integrations = {
-        cmp = true,
-        gitsigns = true,
-        telescope = true,
-        neotree = true,
-        treesitter_context = true,
-        lsp_trouble = true,
-    },
+	flavour = "frappe", -- latte, frappe, macchiato, mocha
+	transparent_background = true,
+	integrations = {
+		cmp = true,
+		gitsigns = true,
+		telescope = true,
+		neotree = true,
+		treesitter_context = true,
+		lsp_trouble = true,
+	},
 })
 
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme("catppuccin")
 
-require('lualine').setup {
-    options = {
-        theme = "catppuccin"
-        -- ... the rest of your lualine config
-    }
-}
+require("lualine").setup({
+	options = {
+		theme = "catppuccin",
+		-- ... the rest of your lualine config
+	},
+})
