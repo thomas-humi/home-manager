@@ -91,7 +91,7 @@
     tflint
     tfswitch
     tgswitch
-    tldr
+    tealdeer
     tfswitch
     tgswitch
     whois
