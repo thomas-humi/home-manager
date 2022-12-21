@@ -348,6 +348,13 @@ require("packer").startup(function()
 			end, 100)
 		end,
 	})
+	use({
+		"zbirenbaum/copilot-cmp",
+		after = { "copilot.lua" },
+		config = function()
+			require("copilot_cmp").setup()
+		end,
+	})
 end)
 
 local trouble = require("trouble.providers.telescope")
