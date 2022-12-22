@@ -107,6 +107,7 @@
   home.sessionVariables = {
     NIXPKGS_ALLOW_UNFREE = 1;
     EDITOR = "nvim";
+    OPENAI_API_KEY = "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";
   };
   home.file = {
     ".config/alacritty/alacritty.yml".source =

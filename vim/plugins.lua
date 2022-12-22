@@ -344,17 +344,37 @@ require("packer").startup(function()
 		event = "VimEnter",
 		config = function()
 			vim.defer_fn(function()
-				require("copilot").setup()
+				require("copilot").setup({
+					panel = {
+						enabled = true,
+						auto_refresh = true,
+						keymap = {
+							jump_prev = "[[",
+							jump_next = "]]",
+							accept = "<CR>",
+							refresh = "gr",
+							open = "<M-CR>",
+						},
+					},
+				})
 			end, 100)
 		end,
 	})
+
 	use({
-		"zbirenbaum/copilot-cmp",
-		after = { "copilot.lua" },
+		"jackMort/ChatGPT.nvim",
 		config = function()
-			require("copilot_cmp").setup()
+			require("chatgpt").setup({
+				-- optional configuration
+			})
 		end,
+		requires = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
 	})
+	use("aduros/ai.vim")
 end)
 
 local trouble = require("trouble.providers.telescope")
