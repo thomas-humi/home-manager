@@ -64,9 +64,6 @@ nnoremap <leader>o :only<cr>
 nnoremap <leader>w :lua require('browse').input_search()<cr>
 nnoremap <leader>d :lua require('browse.devdocs').search()<cr>
 
-" copilot
-nnoremap <leader>cp :Copilot panel<cr>
-
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
