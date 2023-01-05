@@ -108,8 +108,10 @@
   home.sessionVariables = {
     NIXPKGS_ALLOW_UNFREE = 1;
     EDITOR = "nvim";
-    OPENAI_API_KEY = "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";
+    OPENAI_API_KEY = "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";
+    GPG_TTY = "$(tty)";
   };
+
   home.file = {
     ".config/alacritty/alacritty.yml".source =
       config.lib.file.mkOutOfStoreSymlink ./alacritty.yml;
@@ -146,6 +148,10 @@
       delta = { enable = true; };
       userName = "Thomas Steven";
       userEmail = "thomas.steven@humi.ca";
+      signing = {
+        signByDefault = true;
+        key = "4EF7A0A75AA7EE5D";
+      };
       extraConfig = {
         init = { defaultBranch = "main"; };
         help = { autocorrect = "immediate"; };
