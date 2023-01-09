@@ -21,7 +21,7 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    kitty
+    # golines
     actionlint
     air
     alacritty
@@ -31,20 +31,24 @@
     black
     btop
     cl-wordle
+    cowsay
     curlie
+    difftastic
     dig
+    du-dust
     exa
     exif
     exiftool
     fd
+    ffmpeg
     figlet
     gitleaks
     glow
+    gnused
     go_1_18
     gofumpt
     golangci-lint
     golangci-lint-langserver
-    # golines
     gopls
     goreleaser
     gotest
@@ -55,14 +59,17 @@
     htop
     jq
     killall
+    kitty
     libqalculate
     lolcat
     lsof
+    mdl
     mpv
     mycli
     neofetch
     nerdfonts
     netcat
+    termdown
     nixfmt
     nmap
     nodePackages.eslint_d
@@ -74,7 +81,6 @@
     nodePackages.typescript-language-server
     nodePackages.yaml-language-server
     nodejs
-    ffmpeg
     obsidian
     packer
     pgcli
@@ -89,20 +95,16 @@
     slides
     statix
     stylua
+    tealdeer
     terraform-ls
     tflint
     tfswitch
-    tgswitch
-    tealdeer
     tfswitch
+    tgswitch
     tgswitch
     whois
     youtube-dl
     yq-go
-    mdl
-    gnused
-    difftastic
-    du-dust
   ];
 
   home.sessionVariables = {
